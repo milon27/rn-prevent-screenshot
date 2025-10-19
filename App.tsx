@@ -1,17 +1,13 @@
 import React, { useEffect } from 'react';
-import { Platform, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import ScreenGuardModule from 'react-native-screenguard';
 
 export default function App() {
   useEffect(() => {
     const init = async () => {
-      if (Platform.OS === 'android') {
-        await ScreenGuardModule.registerWithoutEffect();
-      } else {
-        await ScreenGuardModule.register({
-          backgroundColor: '#000000',
-        });
-      }
+      await ScreenGuardModule.register({
+        backgroundColor: '#000000',
+      });
     };
     init();
   }, []);
